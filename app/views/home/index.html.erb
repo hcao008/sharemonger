@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <title>Sharemonger</title>
+  <meta charset="utf-8" />
+
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="app\assets\stylesheets\main.css">
+</head>
+
+<body>
+  <%if user_signed_in?%>
+
+      <section class="jumbotron">
+        <div class="container">
+          <div class="row text-center">
+            <% if user_signed_in? %>
+              <h2><%= @profile.first_name %></h2>
+            <% end %>
+            <h1>START HERE</h1>
+            <h4>DON'T DROWN IN THE DETAILS</h4>
+            <h4>GET THE FUNDAMENTALS FOR FREE</h4>
+            <a class="btn btn-primary" href="#">Show me</a>
+          </div>
+        </div>
+      </section>
+<% else %>
+  <div class="jumbotron">
+      <h1>Sharemonger</h1>
+      <h3>Where people learn how to buy AU and NZ Shares</h3>
+      <!-- <button type="button" class="btn btn-primary">Sign Up</button> -->
+      <!-- <button type="button" class="btn btn-info">Sign In</button> -->
+
+      <!-- Add Links that look like buttons via bootstrap classes -->
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-info" %>
+  </div>
+<% end %>
+
+  <footer class="container2">
+    <div class="row">
+      <p class="col-sm-4">&copy; 2016 Sharemonger</p>
+      <ul class="col-sm-8" style="list-style-type:none">
+        <li class="col-sm-1">
+          <img src="<%= image_path('twitter.png') %>"height="50" width="50"/>
+        </li>
+        <li class="col-sm-1">
+          <img src="<%= image_path('fb.png') %>"height="50" width="50"/>
+        </li>
+        <li class="col-sm-1">
+          <img src="<%= image_path('insta.png') %>"height="50" width="50"/>
+        </li>
+        <li class="col-sm-1">
+          <img src="<%= image_path('youtube.png') %>"height="50" width="50"/>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>

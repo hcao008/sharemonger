@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+<p>
+  <strong>First name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.last_name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag(@profile.picture_url(:thumbnail), :width =>50, :height=>50) %>
+</p>
+
+<p>
+  <strong>street:</strong>
+  <%= @profile.street %>
+</p>
+
+
+<p>
+  <strong>suburb:</strong>
+  <%= @profile.suburb %>
+</p>
+
+
+<p>
+  <strong>state:</strong>
+  <%= @profile.state %>
+</p>
+
+
+<p>
+  <strong>country:</strong>
+  <%= @profile.country %>
+</p>
+
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @profile.latitude %>
+</p>
+
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @profile.longitude %>
+</p>
+
+<% if current_user.profile == @profile %>
+  <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-warning' %>
+<% end %>
+
+</div></div></div></div>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>

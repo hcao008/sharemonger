@@ -1,0 +1,25 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container{padding-top: 80px}
+
+// body {
+//   background-image: url(/assets/wallst.jpg);
+//   background-position: top;
+//   background-size: cover;
+//   // background-color: blue
+// }
+
+.box{
+  // background-color: #ADD8E6;
+}
+
+.name{
+  font-style: italic;
+  color: red;
+}
+
+.show{
+  background-color: #e6e6e6;
+}

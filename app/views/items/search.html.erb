@@ -1,0 +1,10 @@
+<div class="show">
+  <h1> Search for your favourite house</h1>
+
+  <%= form_tag('/results', method: :get )%>
+    <%=text_field_tag "id" %>
+    <%= submit_tag "search" %>
+
+</div>
+<!--- challenge: add a search form to search courses by id /name---->
+<!---challenge 2: render search with a different layout -->

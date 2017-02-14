@@ -1,0 +1,26 @@
+<div class ="show">
+  <div class="col-sm-11 col-xs-12 blog-content">
+    <h2 class="text-center"><%= @blog.title %></h2>
+    <h5 class="text-center"><%= @blog.created_at.strftime('%b %d, %Y') %></h5>
+    <div><%= raw @blog.content %></div>
+  </div>
+
+  <hr>
+  <%= link_to 'See all blogs', blogs_path %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %>
+  </hr>
+
+<br>
+
+
+  <hr>
+  <%= render 'comments/form', comment: @comment%>
+  <% @blog.comments.each do |comment| %>
+
+    <%= comment.comment %><br>
+    <strong>by: <%= comment.name%></strong>
+  <hr>
+    <% end %>
+
+    </div>
+</div>

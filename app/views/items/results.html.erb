@@ -1,0 +1,11 @@
+<div class="show">
+<h1> Here are your search results </h1>
+
+<% if @item.present? %>
+  <p><%= @item.name %></p>
+  <p><%= @item.description %></p>
+<% else %>
+  <p> No house found </p>
+<% end %>
+
+</div class>

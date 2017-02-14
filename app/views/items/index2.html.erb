@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<button type="button" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <%= link_to 'Search', search_path %>
+</button>
+
+<div class="show">
+<h1>Houses for Sale</h1>
+
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="box col-lg-3 col-md-4 col-sm-2">
+        <div class="panel panel-default"> 
+          <div class="panel-body">
+              <%= link_to item_path(item) do %>
+                <%= image_tag(item.picture_url, class: 'img-responsive') %>
+              <% end %>
+              <br>
+              <h4 class="name"> Name: <%= item.name %> </h4>
+              <h5> Price: <%= item.price %> </h5>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  </div>
+</div>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Posted date</th>
+      <th>Expiry date</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= image_tag(item.picture_url(:thumbnail), :width =>50, :height=>50) %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        <td><%= item.posted_date %></td>
+        <td><%= item.expiry_date %></td>
+        <!-- <td><%= item.user %></td> -->
+        <!-- <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->
+
+<br>
+
+<!-- <%= link_to 'New Item', new_item_path %> -->
+  <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= link_to 'New Item', new_item_path %>
+  </button>
+
+
+<!-- <br> -->
+
+<!-- <%= link_to 'Search', search_path %> -->

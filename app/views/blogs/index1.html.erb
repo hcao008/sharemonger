@@ -1,0 +1,40 @@
+<h1>BLOGS</h1>
+
+<div class="row">
+  <% @blogs.each do |blog| %>
+    <div class="box col-lg-3 col-md-4 col-sm-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <%= link_to blog_path(blog) do %>
+              <%= image_tag(blog.picture_url, class: 'img-responsive') %>
+            <% end %>
+            <br>
+            <h4 class="name"> Name: <%= blog.title %> </h4>
+            <h5> <%= blog.content %> </h5>
+        </div>
+      </div>
+    </div>
+<% end %>
+</div>
+</div>
+
+
+
+<!-- <table>
+  <tr>
+    <td>Title </td>
+    <td>Content </td>
+    <td colspan="2"></td>
+  </tr>
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= link_to blog.title, blog %></td>
+    <td><%= blog.content %></td>
+    <td><%= link_to 'EDIT', edit_blog_path(blog) %></td>
+    <td><%= link_to 'DELETE', blog_path(blog), method: :delete%></td>
+  </tr>
+
+<% end %>
+</table> -->
+
+<!-- We don't want the individual users to able to post blog<%= link_to 'New Blog Post', new_blog_path %> -->

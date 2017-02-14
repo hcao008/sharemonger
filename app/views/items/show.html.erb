@@ -1,0 +1,53 @@
+<div class="show">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@item.picture_url(:thumbnail), :width => 50, :height => 50) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@item.price) %>
+</p>
+
+<p>
+  <strong>Posted date:</strong>
+  <%= @item.posted_date %>
+</p>
+
+<p>
+  <strong>Expiry date:</strong>
+  <%= @item.expiry_date %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @item.user.email %>
+</p>
+
+<% if can? :manage, @item %>
+  <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning btn-lg" %>
+<% end %>
+
+<%= simple_form_for(@order) do |f| %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <div class="form-actions">
+    <%= f.submit "Buy", class: "btn btn-info" %>
+  </div>
+<% end %>
+
+<button type="button" class="btn btn-warning">
+<%= link_to 'Back', items_path %>
+</button>
+</div>
