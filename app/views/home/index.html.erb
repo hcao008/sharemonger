@@ -38,7 +38,15 @@
       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
       <%= link_to "Sign In", new_user_session_path, class: "btn btn-info" %>
   </div>
+  <%=simple_form_for(@subscriber) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
+
+
 
   <footer class="container2">
     <div class="row">

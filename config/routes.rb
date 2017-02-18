@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :subscribers
   resources :visitors
   # resources :orders
@@ -30,10 +31,13 @@ Rails.application.routes.draw do
 
 #Add About page routes
 get 'about', to: 'home#about'
-get 'privacy', to: 'home#privacy'
+
 get 'terms', to: 'home#terms'
 # get 'community', to: 'home#community'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+#get rich page
+get 'rich', to: 'home#rich'
 
 #Add Contact page routes
 get 'contact', to: 'home#contact'

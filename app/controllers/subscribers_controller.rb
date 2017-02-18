@@ -1,6 +1,6 @@
 class SubscribersController < ApplicationController
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
-
+  # after_create :add_mailchimp_subscriber
   # GET /subscribers
   # GET /subscribers.json
   def index
@@ -25,10 +25,19 @@ class SubscribersController < ApplicationController
   # POST /subscribers.json
   def create
     @subscriber = Subscriber.new(subscriber_params)
+    # user = OpenStruct.new(email: @subscriber.email, first_name: @subscriber.first_name, last_name: @subscriber.last_name)
+    # MailChimpSubscription.subscribe(user)
 
     respond_to do |format|
       if @subscriber.save
-        SubscriptionMailer.send_email(@subscriber,@blog).deliver
+        client = Mailchimp::API.new('e20ddab99446c3e46a5310c2aed58507-us12')
+        client.lists.subscribe('bb17209c0b', 
+                           { "email" => "awais545@gmail.com",
+                             "euid" => "123",
+                             "leid" => "123123"
+                           })
+        # client.lists.subscribe('bb17209c0b', {email: @subscriber.email}, {'FNAME' => @subscriber.first_name, 'LNAME' =>  @subscriber.last_name})
+        # SubscriptionMailer.send_email(@subscriber,@blog).deliver
         format.html { redirect_to @subscriber, notice: 'Subscriber was successfully created.' }
         format.json { render :show, status: :created, location: @subscriber }
       else
@@ -72,4 +81,11 @@ class SubscribersController < ApplicationController
     def subscriber_params
       params.require(:subscriber).permit(:first_name, :last_name, :email)
     end
+
+
+
+
+   def add_mailchimp_subscriber
+
+   end
 end

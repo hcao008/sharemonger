@@ -31,6 +31,8 @@
 <div class="show">
 <body>
 
+
+
     <!-- Page Content -->
     <div class="container">
 
@@ -64,14 +66,12 @@
 
                 <hr>
                 <!-- Pager -->
-                <ul class="pager">
-                    <li class="previous">
-                        <a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
+                <div class="digg_pagination">
+                    <div class="page_info">
+                      <%= page_entries_info @blogs %>
+                    </div>
+                    <%= will_paginate @blogs, :container => false %>
+                  </div>
 
             </div>
 
@@ -125,8 +125,9 @@
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>Get Rich Slowly</h4>
+                    <p><%= link_to "How to Leave Debt Behind, Master Your Money, and Achieve Financial Independence", rich_path%></p>
+
                 </div>
 
             </div>

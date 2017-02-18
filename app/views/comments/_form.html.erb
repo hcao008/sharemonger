@@ -28,8 +28,34 @@
           </div>
 
   <div class="actions"><%= f.submit %></div>
+
+
 <% end %>
 
+<div class="container">
+<blockquote>
+    <h2>Posted Comment</h2>
+    Lorem Ipsum. You can reply to this below.
+</blockquote>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+          href="#collapseOne">
+          Click to reply
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+          ### The comment form comes here ###<br/>
+          ### render :partial => 'comment/form'
+      </div>
+    </div>
+  </div>
+</div>
 
 </form>
 </div>

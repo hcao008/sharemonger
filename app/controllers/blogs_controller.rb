@@ -4,17 +4,18 @@ class BlogsController< ApplicationController
 
 # Index action to render all blogs
 def index
+  # @blogs = Blog.paginate(:page => params[:page])
   # @blogs = Blog.where(category:"Investment")
   # @blogs = Blog.all
   @comments = Comment.all
     if params[:search]
-      @blogs = Blog.search(params[:search]).order("created_at DESC")
+      @blogs = Blog.search(params[:search]).paginate(:page => params[:page]).order("created_at DESC")
     elsif params[:category]
-      @blogs = Blog.where(:category => params[:category])
+      @blogs = Blog.where(:category => params[:category]).paginate(:page => params[:page])
     else
-      @blogs = Blog.all.order('created_at DESC')
+      @blogs = Blog.all.paginate(:page => params[:page]).order('created_at DESC')
     end
-    
+
     # authorize! :read, @blogs
 end
  # New action for creating blog

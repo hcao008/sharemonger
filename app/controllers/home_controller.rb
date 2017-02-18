@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     if user_signed_in?
       @profile = current_user.profile
     end
+    @subscriber = Subscriber.new
   end
 
   def about
