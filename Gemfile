@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -63,6 +63,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'simple_form'
+gem 'stripe'
+gem 'gibbon', github: "amro/gibbon"
 
 gem 'mailchimp-api', require: 'mailchimp'
 gem 'will_paginate', '~> 3.1.1'

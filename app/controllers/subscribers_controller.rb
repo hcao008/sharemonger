@@ -30,14 +30,8 @@ class SubscribersController < ApplicationController
 
     respond_to do |format|
       if @subscriber.save
-        client = Mailchimp::API.new('e20ddab99446c3e46a5310c2aed58507-us12')
-        client.lists.subscribe('bb17209c0b', 
-                           { "email" => "awais545@gmail.com",
-                             "euid" => "123",
-                             "leid" => "123123"
-                           })
-        # client.lists.subscribe('bb17209c0b', {email: @subscriber.email}, {'FNAME' => @subscriber.first_name, 'LNAME' =>  @subscriber.last_name})
-        # SubscriptionMailer.send_email(@subscriber,@blog).deliver
+         subscribe_user_to_mailing_list(@subscriber)
+
         format.html { redirect_to @subscriber, notice: 'Subscriber was successfully created.' }
         format.json { render :show, status: :created, location: @subscriber }
       else
@@ -82,8 +76,9 @@ class SubscribersController < ApplicationController
       params.require(:subscriber).permit(:first_name, :last_name, :email)
     end
 
-
-
+    def subscribe_user_to_mailing_list(visitor)
+      SubscribeUserToMailingListJob.perform_now(visitor)
+    end
 
    def add_mailchimp_subscriber
 

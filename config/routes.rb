@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :items
   resources :profiles
   resources :blogs
-
+  resources :charges
 
   # Example manually defining routes for custom names and helpers
   get "orders", to: "orders#index"
